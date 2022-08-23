@@ -11,9 +11,15 @@ namespace MyService.Logic
         {
             _productsRepository = productsRepository;
         }
+        //取得商品資訊
         public List<ProductViewModel> GetPoducts()
         {
             return _productsRepository.GetProduct();
+        }
+        //新增商品
+        public bool SetNewProducts(CreatePorductViewModel Product)
+        {
+            return _productsRepository.CreateProduct(Product);
         }
     }
 }

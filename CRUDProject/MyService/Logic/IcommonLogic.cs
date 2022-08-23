@@ -5,5 +5,6 @@ namespace MyService.Logic
     public interface IcommonLogic
     {
         public List<ProductViewModel> GetPoducts();
+        public bool SetNewProducts(CreatePorductViewModel Product);
     }
 }

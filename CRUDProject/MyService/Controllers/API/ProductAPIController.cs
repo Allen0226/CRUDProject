@@ -23,5 +23,10 @@ namespace MyService.Controllers.API
         {
             return _commonLogic.GetPoducts();
         }
+        [HttpPost]
+        public bool CreateProduct(CreatePorductViewModel NewProduct)
+        {
+            return _commonLogic.SetNewProducts(NewProduct);
+        }
     }
 }
