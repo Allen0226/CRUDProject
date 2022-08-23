@@ -43,5 +43,34 @@ namespace MyService.Models.Repository
             }
             return true;
         }
+        //取得編輯商品資訊
+        public EditInfoViewModel GetEditProduct(int ProductId)
+        {
+            return _northWind.MyProducts.Where(p => p.ProductId == ProductId).Select(p => new EditInfoViewModel()
+            {
+                Id = p.ProductId,
+                Name = p.ProductName,
+                Price = p.UnitPrice,
+                Stock = p.UnitsInStock
+            }).First();
+        }
+        //編輯商品
+        public bool EditProduct(EditInfoViewModel EditProduct)
+        {
+            var EditItem = _northWind.MyProducts.FirstOrDefault(p => p.ProductId == EditProduct.Id);
+            EditItem.ProductName = EditProduct.Name;
+            EditItem.UnitPrice = EditProduct.Price;
+            EditItem.UnitsInStock = EditProduct.Stock;
+            EditItem.LaunchDate = DateTime.Now;
+            try
+            {
+                _northWind.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

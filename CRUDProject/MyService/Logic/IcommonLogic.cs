@@ -6,5 +6,7 @@ namespace MyService.Logic
     {
         public List<ProductViewModel> GetPoducts();
         public bool SetNewProducts(CreatePorductViewModel Product);
+        public EditInfoViewModel GetEditProducts(int index);
+        public bool SetEditProducts(EditInfoViewModel Product);
     }
 }

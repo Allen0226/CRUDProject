@@ -11,15 +11,29 @@ namespace MyService.Logic
         {
             _productsRepository = productsRepository;
         }
+
+   
+
         //取得商品資訊
         public List<ProductViewModel> GetPoducts()
         {
             return _productsRepository.GetProduct();
         }
+
         //新增商品
         public bool SetNewProducts(CreatePorductViewModel Product)
         {
             return _productsRepository.CreateProduct(Product);
+        }
+        //取得要編輯商品資訊
+        public EditInfoViewModel GetEditProducts(int index)
+        {
+            return _productsRepository.GetEditProduct(index);
+        }
+        //編輯商品
+        public bool SetEditProducts(EditInfoViewModel Product)
+        {
+            return _productsRepository.EditProduct(Product);
         }
     }
 }
