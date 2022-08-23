@@ -43,5 +43,12 @@ namespace MyService.Controllers.API
         {
             return _commonLogic.SetEditProducts(EditProduct);
         }
+        //刪除商品
+        [HttpDelete]
+        [Route("{ProductId}")]
+        public bool DeleteProductInfo(int ProductId)
+        {
+            return _commonLogic.DeleteProducts(ProductId);
+        }
     }
 }

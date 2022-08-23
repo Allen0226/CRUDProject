@@ -72,5 +72,20 @@ namespace MyService.Models.Repository
             }
             return true;
         }
+        //刪除商品
+        public bool DeleteProduct(int ProductId)
+        {
+            var DeleteItem = _northWind.MyProducts.FirstOrDefault(p => p.ProductId == ProductId);      
+            try
+            {
+                _northWind.Remove(DeleteItem);
+                _northWind.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

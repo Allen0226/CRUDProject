@@ -8,5 +8,6 @@ namespace MyService.Logic
         public bool SetNewProducts(CreatePorductViewModel Product);
         public EditInfoViewModel GetEditProducts(int index);
         public bool SetEditProducts(EditInfoViewModel Product);
+        public bool DeleteProducts(int index);
     }
 }

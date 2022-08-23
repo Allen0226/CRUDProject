@@ -35,5 +35,10 @@ namespace MyService.Logic
         {
             return _productsRepository.EditProduct(Product);
         }
+        //刪除商品
+        public bool DeleteProducts(int index)
+        {
+            return _productsRepository.DeleteProduct(index);
+        }
     }
 }
